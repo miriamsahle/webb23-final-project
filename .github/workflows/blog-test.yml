@@ -46,7 +46,7 @@ jobs:
 
       - name: Run migrations and tests
         run: |
-          python blog_project/manage.py migrate
-          python blog_project/manage.py test
+          python3 blog_project/manage.py migrate
+          python3 blog_project/manage.py test
         env:
           DJANGO_SETTINGS_MODULE: blog_project.settings
