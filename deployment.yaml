@@ -1,0 +1,22 @@
+apiVersion: apps/v1 # API-versionen som används för Deployment
+kind: Deployment # Typen av Kubernetes-objekt, i detta fall en Deployment
+metadata:
+  name: blog-deployment # Namnet på Deployment-objektet
+  labels:
+    app: blog # Metadata labels för att identifiera objektet
+spec:
+  replicas: 2 # Antalet repliker (Pods) som ska köras
+  selector:
+    matchLabels:
+      app: blog # Etikett som Pods måste matcha för att tillhöra denna Deployment
+  template:
+    metadata:
+      labels:
+        app: blog # Etikett som appliceras på Pods
+    spec:
+      containers:
+        - name: blog
+          image: blog_project # Docker-bilden som används för containern
+          imagePullPolicy: Never # Använd "Never" eftersom imagen redan finns lokalt i Minikube
+          ports:
+            - containerPort: 8000 # Port som containern lyssnar på

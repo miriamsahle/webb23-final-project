@@ -1,0 +1,13 @@
+apiVersion: v1 # API-versionen för att skapa en Service
+kind: Service # Typen av Kubernetes-objekt, i detta fall en Service
+metadata:
+  name: blog-service # Namnet på Service-objektet
+spec:
+  selector:
+    app: blog # Välj Pods med etiketten "app: nginx"
+  ports:
+    - protocol: TCP # Protokollet som används, i detta fall TCP
+      port: 8000 # Porten som Service kommer att lyssna på
+      targetPort: 8000 # Porten på Pods som Service kommer att vidarebefordra trafiken till
+      nodePort: 30080 # Den specifika porten på noderna som trafiken vidarebefordras till (för NodePort)
+  type: NodePort # Typen av Service, i detta fall NodePort
