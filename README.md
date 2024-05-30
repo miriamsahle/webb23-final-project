@@ -1,5 +1,5 @@
 # Webb23 alm final project
-# Geupp 13
+# Grupp 13
 # Miriam Sahle
 # Saifu Izamander
 
