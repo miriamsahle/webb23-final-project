@@ -1,3 +1,5 @@
+# Denna YAML-fil beskriver en Kubernetes Deployment som hanterar två repliker av en Pod. Varje Pod innehåller en container som körs med en lokal Docker-bild och lyssnar på port 8000.
+
 apiVersion: apps/v1 # API-versionen som används för Deployment
 kind: Deployment # Typen av Kubernetes-objekt, i detta fall en Deployment
 metadata:

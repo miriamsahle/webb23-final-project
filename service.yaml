@@ -1,12 +1,14 @@
+# Denna YAML-fil beskriver en Kubernetes Service som vidarebefordrar trafik till Pods med etiketten app: blog. Servicen lyssnar på port 8000 och vidarebefordrar trafiken till port 8000 på Pods. Den är av typen NodePort, vilket innebär att den exponerar port 30080 på varje nod i klustret.
+
 apiVersion: v1 # API-versionen för att skapa en Service
-kind: Service # Typen av Kubernetes-objekt, i detta fall en Service
+kind: Service # Typen av Kubernetes-objekt, i detta fall en Service,
 metadata:
   name: blog-service # Namnet på Service-objektet
 spec:
   selector:
-    app: blog # Välj Pods med etiketten "app: nginx"
+    app: blog #spec beskriver önskad tillstånd för Service. selector används för att välja vilka Pods som denna Service ska vidarebefordra trafiken till. Pods måste ha en etikett app: blog för att matcha
   ports:
-    - protocol: TCP # Protokollet som används, i detta fall TCP
+    - protocol: TCP # "ports" anger vilka portar och protokoll som Service ska använda. Här används TCP-protokollet.
       port: 8000 # Porten som Service kommer att lyssna på
       targetPort: 8000 # Porten på Pods som Service kommer att vidarebefordra trafiken till
       nodePort: 30080 # Den specifika porten på noderna som trafiken vidarebefordras till (för NodePort)
